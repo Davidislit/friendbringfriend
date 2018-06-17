@@ -1,10 +1,17 @@
 {% extends 'posts/layout.html' %}
 
 {% block content %}
-<h3 class="center-align teal-text text-darken-2">{{title}}</h3>
-<ul class="collection">
-    {% for posts in posts %}
-    <li class="collection-item"><a href="/posts/details/{{posts.id}}">{{posts.title}}</a></li>
-    {% endfor %}
-</ul>
+{% for posts in posts %}
+<div class="col s12 m4">
+    <div class="card-panel">
+        <div class="card-content black-text">
+            <span class="card-title center-align">{{posts.title}}</span>
+            <p>{{ posts.description }}</p>
+                <div class="card-action">
+                    <a href="/posts/details/{{posts.id}}" >More Details</a>
+                </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
 {% endblock %}

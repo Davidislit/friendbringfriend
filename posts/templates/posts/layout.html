@@ -1,40 +1,102 @@
+{% load staticfiles %}
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href='{% static "/app/materialize.min.css" %}'>
+
+    <!-- Compiled and minified CSS
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-    <title>friend brings friend</title>
+    -->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+
+    <!--<link rel="stylesheet" href="css/main.css"> -->
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Cg-Jobs</title>
 </head>
-<body>
 
-     <nav class="teal lighten-2" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Cg Solutions</a></div>
-     </nav>
+<body id="home" class="scrollspy">
 
-  <div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-      <br><br>
-      <h1 class="header center text-cyan">friend brings friend</h1>
-      <div class="row center">
-        <h5 class="header col s12 light">Have a friend who is looking for a new job? check out our available jobs</h5>
-      </div>
+    <!-- Section: NavBar -->
+    <div class="navbar-fixed">
+        <nav class="blue-grey darken-1">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo"><img class="container" src='{% static "/app/logo-1.png" %}' alt="logo"></a>
+                    <a href="#" data-target="mobile-nav" class="sidenav-trigger">
+                    </a>
+                </div>
+            </div>
+        </nav>
     </div>
-  </div>
 
-    <div class="container">
-        {% block content %}
-        {% endblock %}
-    </div>
-    <br><br>
-<footer class="page-footer teal lighten-2">
+<!-- Section: Slider -->
+
+    <section class="slider">
+        <ul class="slides">
+            <li>
+                <img src='{% static "/app/pic1.jpg" %}'>
+                <!-- random image -->
+                <div class="caption center-align">
+                    <h3>Take Your Dream Vacation</h3>
+                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus culpa, delectus nostrum blanditiis.</h5>
+                </div>
+            </li>
+            <li>
+                <img src='{% static "/app/pic2.jpg" %}'>
+                <!-- random image -->
+                <div class="caption left-align">
+                    <h2>We Work With All Budgets</h2>
+                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo quis asperiores quasi autem quaerat veritatis</h5>
+                </div>
+            </li>
+            <li>
+                <img src='{% static "/app/pic3.jpg" %}'>
+                <!-- random image -->
+                <div class="caption right-align">
+                    <h2>Group & Individual Geateways</h2>
+                    <h5 class="light grey-text text-lighten-3 hide-on-small-only">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quis, consectetur sunt facilis</h5>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+
+    <!-- Section: Search -->
+    <section id="search" class="section blue-grey darken-1 white-text center scrollspy">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <h3>Our Jobs</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Icon Boxes -->
+    <section class="section section-icons grey lighten-4">
+        <div class="container">
+            <div class="row">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </section>
+
+<footer class="page-footer blue-grey darken-1">
     <div class="container">
       <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We provide a full software suite and skills retention personnel needed to run a successful iGaming business.</p>
+        <div class="col s6">
+          <h5 class="white-text">Contact Us</h5>
+          <p class="grey-text text-lighten-4">For more details and recruitment</p>
+            <p>itsdavid1337@gmail.com</p>
         </div>
       </div>
     </div>
@@ -44,5 +106,44 @@
       </div>
     </div>
   </footer>
+
+
+    <script src='{% static "/app/materialize.min.js" %}'></script>
+    <script>
+            //Sidenav
+            const sideNav = document.querySelector(".sidenav");
+            M.Sidenav.init(sideNav, {});
+
+            // Slider
+            const slider = document.querySelector(".slider");
+            M.Slider.init(slider, {
+                indicators: false,
+                height: 500,
+                transition: 800,
+                interval: 1500
+            })
+
+            // Autocomplete
+            const ac = document.querySelector('.autocomplete');
+            M.Autocomplete.init(ac, {
+                data: {
+                    "Aruba": null,
+                    "Cancun Mexico": null,
+                    "Hawaii": null,
+                    "Flordia": null,
+                    "California": null,
+                    "Jamaica": null,
+                    "Europe": null
+                }
+            });
+
+            // Material Boxed
+            const mb = document.querySelectorAll('.materialboxed');
+            M.Materialbox.init(mb, {});
+
+            // ScrollSpy
+            const ss = document.querySelectorAll('.scrollspy');
+            M.ScrollSpy.init(ss, {});
+        </script>
 </body>
 </html>

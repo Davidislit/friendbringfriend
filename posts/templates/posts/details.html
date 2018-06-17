@@ -1,16 +1,20 @@
 {% extends 'posts/layout.html' %}
 
 {% block content %}
-<h3 class="center-align teal-text text-darken-2">{{posts.title}}</h3>
+<h3 class="center-align grey-text text-darken-2">{{posts.title}}</h3>
 <div class="card">
     <div class="card-content">
         {{posts.body|linebreaks}}
     </div>
     <div class="card-action">
-        <a href="mailto:thedavid1337@gmail.com?subject=Apply to {{posts.title}}" target="_blank">Apply Job</a>
+        {{posts.value|linebreaks}}
     </div>
-</div>
-<a class="btn" href="/posts">Go Back</a>
-<br><br>
+    <div class="card-action row">
+        <a class="btn blue-grey darken-1" href="/posts">Go Back</a>
+        <a class="btn blue-grey darken-1" href="mailto:thedavid1337@gmail.com?subject=Apply to {{posts.title}}" target="_blank">Apply Job</a>
+    </div>
 
+</div>
+
+</div>
 {% endblock %}
